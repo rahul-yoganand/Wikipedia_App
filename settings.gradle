@@ -1,0 +1,2 @@
+rootProject.name = "Wikipedia App"
+include ':app'
