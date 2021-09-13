@@ -11,12 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WikipediaApp">
-        <activity android:name=".webView"></activity>
+        <activity android:name=".ui.webView"></activity>
         <activity
-            android:name=".BottomNavMain"
-            android:label="@string/title_activity_bottom_nav_main"></activity>
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

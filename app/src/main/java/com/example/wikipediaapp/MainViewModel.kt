@@ -20,7 +20,6 @@ class MainViewModel(var repository: Repository) : ViewModel() {
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     val items = response.body()
-                    //Log.d("hello",items!!.query?.pages[0].title)
                     if (items?.query != null) {
                         mQueryResults.value = items.query.pages
                         isFound.value = true

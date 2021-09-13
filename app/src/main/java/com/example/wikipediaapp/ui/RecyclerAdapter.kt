@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wikipediaapp.R
 
-class RecyclerAdapter(private val mList: List<Pages>) :
+class RecyclerAdapter(private val mList: List<Pages>,private val listener:SearchItemClicked) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
@@ -23,8 +23,12 @@ class RecyclerAdapter(private val mList: List<Pages>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_rv, parent, false)
+        val viewHolder=ViewHolder(view)
+        viewHolder.itemView.setOnClickListener {
+            listener.itemClicked(mList[viewHolder.adapterPosition].title)
+        }
 
-        return ViewHolder(view)
+        return viewHolder
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -47,4 +51,7 @@ class RecyclerAdapter(private val mList: List<Pages>) :
     override fun getItemCount(): Int {
         return mList.size
     }
+}
+interface SearchItemClicked{
+    fun itemClicked(item:String)
 }

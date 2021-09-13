@@ -11,7 +11,7 @@ interface SimpleApi {
     suspend fun getSearchResult(@Query("gpssearch") albert: String): Response<Json4Kotlin_Base>
 
     @GET("wiki/{albert}")
-    suspend fun getPageResult(@Path("albert") albert: String)
+    suspend fun getPage(@Path("albert") albert: String)
 
 
 }
