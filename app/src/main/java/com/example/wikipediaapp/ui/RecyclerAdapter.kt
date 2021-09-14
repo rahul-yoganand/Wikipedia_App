@@ -15,7 +15,6 @@ class RecyclerAdapter(private val mList: List<Pages>, private val listener:Searc
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-
         val thumbnail: ImageView = itemView.findViewById(R.id.iv_rv)
         val title: TextView = itemView.findViewById(R.id.tv_title)
         val desc: TextView = itemView.findViewById(R.id.tv_desciption)

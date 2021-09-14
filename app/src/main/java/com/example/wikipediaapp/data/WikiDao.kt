@@ -13,6 +13,6 @@ interface WikiDao {
     suspend fun insertPage(page: WikiPage)
 
     @Query("SELECT * FROM WikiPage where title like '%' || :titlename || '%'")
-    fun getFromDb(titlename:String): Flow<List<WikiPage>>
+    suspend fun getFromDb(titlename:String): List<WikiPage>
 
 }

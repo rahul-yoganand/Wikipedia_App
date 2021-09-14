@@ -15,8 +15,8 @@ class Repository(context: Context) {
         return RetrofitInstance.api.getSearchResult(s)
     }
 
-    suspend fun getSearchFromDb(s: String) {
-        wikiDao.getFromDb(s)
+    suspend fun getSearchFromDb(s: String): List<WikiPage> {
+       return  wikiDao.getFromDb(s)
     }
 
     suspend fun InsertPage(page: WikiPage) {
