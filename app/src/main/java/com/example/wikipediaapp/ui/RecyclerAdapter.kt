@@ -1,6 +1,6 @@
 package com.example.wikipediaapp.ui
 
-import Pages
+import com.example.wikipediaapp.model.Pages
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wikipediaapp.R
+import com.example.wikipediaapp.data.WikiPage
 
-class RecyclerAdapter(private val mList: List<Pages>,private val listener:SearchItemClicked) :
+class RecyclerAdapter(private val mList: List<Pages>, private val listener:SearchItemClicked) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
@@ -25,7 +26,7 @@ class RecyclerAdapter(private val mList: List<Pages>,private val listener:Search
             .inflate(R.layout.item_rv, parent, false)
         val viewHolder=ViewHolder(view)
         viewHolder.itemView.setOnClickListener {
-            listener.itemClicked(mList[viewHolder.adapterPosition].title)
+            listener.itemClicked(WikiPage(mList[viewHolder.adapterPosition].pageid,mList[viewHolder.adapterPosition].title,mList[viewHolder.adapterPosition].terms.description[0].toString()))
         }
 
         return viewHolder
@@ -53,5 +54,5 @@ class RecyclerAdapter(private val mList: List<Pages>,private val listener:Search
     }
 }
 interface SearchItemClicked{
-    fun itemClicked(item:String)
+    fun itemClicked(item:WikiPage)
 }
